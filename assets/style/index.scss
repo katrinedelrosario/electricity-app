@@ -2,11 +2,13 @@ $black: #201e1e;
 $grey: #27282b;
 $white: #ebebeb;
 $green: #55ec20;
+$roboto: "Roboto", sans-serif;
 
 body {
   background-color: $grey;
   padding: 0;
   margin: 0;
+  font-family: $roboto;
 }
 
 .nav-container {
@@ -31,7 +33,6 @@ body {
     text-transform: uppercase;
     color: $white;
 
-    font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-weight: 500;
     letter-spacing: 0em;
@@ -57,3 +58,55 @@ body {
     left: 337px;
   }
 }
+
+
+.content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  #currently-content {
+    color: $green;
+    align-items: center;
+
+    .circle1 {
+      border: dotted;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+    }
+    h1 {
+      color: $white;
+    }
+  }
+
+  #overview-content {
+    h1 {
+      color: $white;
+    }
+  }
+
+}
+
+
+
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: $black;
+  padding: 10px;
+
+  p {
+    margin: 0;
+    color: $white;
+    span {
+      color: $green;
+    }
+  }
+}
+
+
+

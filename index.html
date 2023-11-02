@@ -9,16 +9,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style/index.css">
-    <script src="/data.js" type="module" defer></script>
-    <script src="/app.js" defer></script>
+    <script src="/assets/js/nav.js" defer></script>
+    <script src="/assets/js/currently.js" type="module" defer></script>
+    <script src="/assets/js/overview.js" type="module" defer></script>
     <title>elpriser.nu</title>
 </head>
 
 <body>
     <nav class="nav-container">
         <img class="logo" src="/assets/icons/logo/mainIcon.ico" alt="logo">
-        <a href="#" id="summary">oversigt</a>
-        <a href="#" id="now">lige nu</a>
+        <a href="#" id="overview">oversigt</a>
+        <a href="#" id="currently">lige nu</a>
         <a href="#" id="history">historik</a>
     </nav>
 
@@ -31,17 +32,44 @@
         </button>
     </div>
 
-    <div id="summary-content">oversigt</div>
-    <div id="now-content">elprisen lige nu</div>
-    <div id="history-content">historik</div>
+    <div class="content">
+        <div id="overview-content">
+            <h1>oversigt</h1>
+            <h2 id="lowestPrice"></h2>
+            <h2 id="highestPrice"></h2>
+            <div class="overview-table">
+
+            </div>
+        </div>
+
+
+        <div id="currently-content">
+            <h1>elprisen lige nu</h1>
+            <div class="circle3">
+                <div class="circle2">
+                    <div class="circle1">
+                        <h2 id="currently-price"></h2>
+                        
+                    </div>
+                </div>
+            </div>
+            <h3 id="currently-time"></h3>
+        </div>
+
+
+        <div id="history-content">
+            <h1>historik</h1>
+        </div>
+    </div>
+    
 
 
 
     <!-- footer -->
-    <!-- <footer>
-        <p>alle priser er eksl. moms og afgifter.</p>
-        <p>Du vises lige nu priserne for region øst danmark</p>
-    </footer> -->
+    <footer>
+        <p>alle priser er <span>eksl. moms</span> og afgifter</p>
+        <p>Du vises lige nu priserne for region <span>øst danmark</span></p>
+    </footer>
 </body>
 
 </html>

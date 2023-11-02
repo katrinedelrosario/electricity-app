@@ -13,17 +13,17 @@ const apiUrl = `${baseUrl}${currentYear}/${currentMonth}-${currentDay}_${area}.j
 
 async function findCurrentPrice() {
     try {
-        let data = await fetchData(apiUrl)
-        let currentTime = today
+        const data = await fetchData(apiUrl)
+        const currentTime = today
     
         //goes through each objects in fetched data array
         for (let i = 0; i < data.length; i++) {
-            let startTime = new Date(data[i].time_start)
-            let endTime = new Date(data[i].time_end)
+            const startTime = new Date(data[i].time_start)
+            const endTime = new Date(data[i].time_end)
     
             //compares our start- and endtime with current and returns data
             if (currentTime >= startTime && currentTime < endTime) {
-                return data[i].DKK_per_kWh
+                return data[i].DKK_per_kWh.toFixed(3)  //formats with 3 decimals
             }
         }
     } catch (error) {
@@ -31,27 +31,31 @@ async function findCurrentPrice() {
     }
 }
 
-async function todayData() {
+async function currentlyData() {
     try {
         let data = await fetchData(apiUrl)
         console.log(data)
     
         let currentPrice = await findCurrentPrice()
-        console.log("Aktuel elpris i DKK per kWh: " + currentPrice)
+        console.log('current price:' + currentPrice)
+
+        const currentlyPrice = document.getElementById('currently-price')
+        currentlyPrice.textContent = currentPrice + ' pr. kwh '
+
+        const currentlyTime = document.getElementById('currently-time')
+        const currentStartHour = new Date().getHours().toFixed(2)
+        const currentEndHour = (new Date().getHours() +1).toFixed(2)
+        currentlyTime.textContent = currentStartHour + ' - ' + currentEndHour
+        console.log('current hours:', currentStartHour, currentEndHour);
 
     } catch (error) {
-        console.error('error handeling todayData', error);
+        console.error('error handeling currentlyData', error);
     }
 }
 
 
-todayData()
+currentlyData()
 
-
-
-// const nowContent = document.getElementById('now-content');
-// const dkkPerKwh = fetchData[0].DKK_per_kWh; // Dette antager, at du ønsker at hente værdien fra det første element i arrayet.
-// nowContent.textContent = `Pris per kWh: ${dkkPerKwh} DKK`;
 
 
 
