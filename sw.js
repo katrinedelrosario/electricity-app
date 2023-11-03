@@ -1,5 +1,5 @@
-const staticCacheName = 'site-static-v1.3'
-const dynamicCacheName = 'site-dynamic-v1.3'
+const staticCacheName = 'site-static-v1.6'
+const dynamicCacheName = 'site-dynamic-v1.6'
 
 const assets = [
     './index.html',
@@ -10,7 +10,8 @@ const assets = [
     './assets/js/history.js',
     './assets/js/nav.js',
     './assets/js/overview.js',
-    './fallback.html'
+    './fallback.html',
+    './assets/js/history.js'
 ]
 
 
@@ -61,90 +62,90 @@ const limitCacheSize = (cacheName, numberOfAllowedFiles) => {
 	})
 }
 
-//fetch
+// //fetch
 
-self.addEventListener(
-  "fetch",
-  (event) => {
-    // Efter fetch request
-    event.respondWith(
-      (async () => {
-        // check om response findes i cache
-        const cachedResponse = await caches.match(event.request);
-        if (cachedResponse) {
-          // hvis response er i cache - returner den
-          return cachedResponse;
-        } else {
-          const response = await fetch(event.request);
+// self.addEventListener(
+//   "fetch",
+//   (event) => {
+//     // Efter fetch request
+//     event.respondWith(
+//       (async () => {
+//         // check om response findes i cache
+//         const cachedResponse = await caches.match(event.request);
+//         if (cachedResponse) {
+//           // hvis response er i cache - returner den
+//           return cachedResponse;
+//         } else {
+//           const response = await fetch(event.request);
 
-          // Hvis siden ikke findes så vis fallback siden
-          if (response.status == 404) {
-            const cache = await caches.open(staticCacheName);
-            const cachedResponse = await cache.match("./fallback.html");
-            return cachedResponse;
-          }
+//           // Hvis siden ikke findes så vis fallback siden
+//           if (response.status == 404) {
+//             const cache = await caches.open(staticCacheName);
+//             const cachedResponse = await cache.match("./fallback.html");
+//             return cachedResponse;
+//           }
 
-          // ???
-          if (
-            !response ||
-            response.status !== 200 ||
-            response.type !== "basic"
-          ) {
-            return response;
-          }
+//           // ???
+//           if (
+//             !response ||
+//             response.status !== 200 ||
+//             response.type !== "basic"
+//           ) {
+//             return response;
+//           }
 
-          // hvis dynamisk cache er slået til "boolean" så åben cache og gem response
+//           // hvis dynamisk cache er slået til "boolean" så åben cache og gem response
 
-          const responseToCache = response.clone();
-          const cache = await caches.open(dynamicCacheName);
-          await cache.put(event.request, responseToCache);
+//           const responseToCache = response.clone();
+//           const cache = await caches.open(dynamicCacheName);
+//           await cache.put(event.request, responseToCache);
 
-          return response;
-        }
-      })()
-    );
-  },
-  // Kør limitCache size til maks 50 filer
-  limitCacheSize(dynamicCacheName, 50)
-);
-
-
+//           return response;
+//         }
+//       })()
+//     );
+//   },
+//   // Kør limitCache size til maks 50 filer
+//   limitCacheSize(dynamicCacheName, 50)
+// );
 
 
 
 
 
 
-//fetch
-// self.addEventListener("fetch", (event) => {
+
+
+fetch
+ self.addEventListener("fetch", (event) => {
 	
   
-// 	if (!(event.request.url.indexOf('http') === 0)) return
-// 	event.respondWith(
-// 	  caches
-// 		.match(event.request)
-// 		.then((cacheRes) => {
-// 		  return (
-// 			cacheRes ||
-// 			fetch(event.request).then(async fetchRes => {
-// 			  return caches.open(dynamicCacheName).then((cache) => {
-// 				cache.put(event.request.url, fetchRes.clone())
-// 				return fetchRes
-// 			  })
-// 			})
-// 		  )
-// 		})
+ 	if (!(event.request.url.indexOf('http') === 0)) return
+ 	event.respondWith(
+ 	  caches
+ 		.match(event.request)
+ 		.then((cacheRes) => {
+ 		  return (
+ 			cacheRes ||
+ 			fetch(event.request).then(async fetchRes => {
+ 			  return caches.open(dynamicCacheName).then((cache) => {
+ 				cache.put(event.request.url, fetchRes.clone())
+ 				return fetchRes
+ 			  })
+ 			})
+ 		  )
+ 		})
 
-//     //catches error and returns fallback page
-//     .catch(() => {
-// 			if(event.request.url.indexOf('.html') > -1) {
-// 				return caches.match('./fallback.html')
-// 			}
-// 		}
-// 	)
+     //catches error and returns fallback page
+     .catch(() => {
+ 			if(event.request.url.indexOf('.html') > -1) {
+ 				return caches.match('./fallback.html')
+ 			}
+ 		}
+ 	)
     
 	
-// )},
-// limitCacheSize(dynamicCacheName, 100)
-// )
+ )},
+ limitCacheSize(dynamicCacheName, 100)
+ )
 

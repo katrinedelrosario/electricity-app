@@ -18,11 +18,11 @@ async function overviewData() {
             const lowestPrice = Math.min(...data.map(item => item.DKK_per_kWh.toFixed(3)))
 
             const lowest = document.getElementById('lowestPrice')
-            lowest.textContent = lowestPrice + ' pr. kwh'
+            lowest.textContent = lowestPrice + ' pr. kwh '
             const highest = document.getElementById('highestPrice')
-            highest.textContent = highestPrice + ' pr. kwh'
+            highest.textContent = highestPrice, ' pr. kwh ' 
 
-            // let tableHTML = '<ul>'
+            // // let tableHTML = '<ul>'
             for (const item of data) {
                 let startTime = new Date(item.time_start).toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' })
                 let price = item.DKK_per_kWh.toFixed(3)
@@ -32,11 +32,11 @@ async function overviewData() {
                 const overviewTable = document.querySelector('#overview-table')
                 overviewTable.innerHTML += `<div class="overview-bar"<p class="overview-time">${startTime}</p> <p class="overview-price">${price}</p></div>`
 
-                // tableHTML += `<li>${startTime} ${price} kr</li>`
-                // tableHTML += '</ul>'
+                // // tableHTML += `<li>${startTime} ${price} kr</li>`
+                // // tableHTML += '</ul>'
 
-                // const overviewTable = document.querySelector('.overview-table')
-                // overviewTable.innerHTML = tableHTML
+                // // const overviewTable = document.querySelector('.overview-table')
+                // // overviewTable.innerHTML = tableHTML
                 
 
 

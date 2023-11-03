@@ -13,8 +13,8 @@ const currentlyContent = document.getElementById('currently-content')
 const historyContent = document.getElementById('history-content')
 
 
-overviewContent.style.display = 'block'
-currentlyContent.style.display = 'none'
+overviewContent.style.display = 'none'
+currentlyContent.style.display = 'block'
 historyContent.style.display = 'none'
 
 overviewLink.addEventListener('click', () => {
