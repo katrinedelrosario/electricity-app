@@ -67,6 +67,35 @@ body {
 .content #currently-content h1 {
   color: #ebebeb;
 }
+.content #overview-content {
+  color: #ebebeb;
+}
+.content #overview-content .high-low {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+.content #overview-content .high-low-prices {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+}
+.content #overview-content #overview-table .overview-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #201E1E;
+  width: 90vw;
+  height: 3rem;
+  border-radius: 7px;
+  box-shadow: 0px 0px 9px 1px rgba(255, 255, 255, 0.096);
+  margin: 10px;
+  padding: 10px;
+}
 .content #overview-content h1 {
   color: #ebebeb;
 }
