@@ -34,10 +34,10 @@ async function findCurrentPrice() {
 async function currentlyData() {
     try {
         let data = await fetchData(apiUrl)
-        console.log(data)
+        //console.log(data)
     
         let currentPrice = await findCurrentPrice()
-        console.log('current price:' + currentPrice)
+        //console.log('current price:' + currentPrice)
 
         const currentlyPrice = document.getElementById('currently-price')
         currentlyPrice.textContent = currentPrice + ' pr. kwh '
@@ -46,7 +46,7 @@ async function currentlyData() {
         const currentStartHour = new Date().getHours().toFixed(2)
         const currentEndHour = (new Date().getHours() +1).toFixed(2)
         currentlyTime.textContent = currentStartHour + ' - ' + currentEndHour
-        console.log('current hours:', currentStartHour, currentEndHour);
+        //console.log('current hours:', currentStartHour, currentEndHour);
 
     } catch (error) {
         console.error('error handeling currentlyData', error);

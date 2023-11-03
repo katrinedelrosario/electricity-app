@@ -8,19 +8,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <link rel="stylesheet" href="/assets/style/index.css">
     <script src="/assets/js/nav.js" defer></script>
     <script src="/assets/js/currently.js" type="module" defer></script>
     <script src="/assets/js/overview.js" type="module" defer></script>
+    <script src="./sw.js" defer></script>
+    <link rel="manifest" href="./manifest.json">
     <title>elpriser.nu</title>
 </head>
 
 <body>
     <nav class="nav-container">
         <img class="logo" src="/assets/icons/logo/mainIcon.ico" alt="logo">
-        <a href="#" id="overview">oversigt</a>
-        <a href="#" id="currently">lige nu</a>
-        <a href="#" id="history">historik</a>
+        <a  id="overview">oversigt</a>
+        <a id="currently">lige nu</a>
+        <a  id="history">historik</a>
     </nav>
 
 
@@ -64,6 +67,11 @@
 
         <div id="history-content">
             <h1>historik</h1>
+            <div class="date">
+                <h2 id="chosen-date"></h2>
+                <button style='font-size:24px'>Button <i class='far fa-calendar-alt'></i>>
+                </button>
+            </div>
         </div>
     </div>
     

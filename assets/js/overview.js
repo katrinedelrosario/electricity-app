@@ -22,19 +22,13 @@ async function overviewData() {
             const highest = document.getElementById('highestPrice')
             highest.textContent = highestPrice + ' pr. kwh'
 
-            console.log('Højeste pris: ' + highestPrice.toFixed(3) + ' DKK per kWh')
-            console.log('Laveste pris: ' + lowestPrice.toFixed(3) + ' DKK per kWh')
-
-            // shows the hourly prices
-            console.log('Prisoversigt pr. time:')
-
             // let tableHTML = '<ul>'
             for (const item of data) {
                 let startTime = new Date(item.time_start).toLocaleTimeString('da-DK', { hour: '2-digit', minute: '2-digit' })
                 let price = item.DKK_per_kWh.toFixed(3)
-                console.log(`${startTime}: ${price}kr.`)
+                //console.log(`${startTime}: ${price}kr.`)
 
-
+                // shows the hourly prices
                 const overviewTable = document.querySelector('#overview-table')
                 overviewTable.innerHTML += `<div class="overview-bar"<p class="overview-time">${startTime}</p> <p class="overview-price">${price}</p></div>`
 
