@@ -40,7 +40,8 @@ async function currentlyData() {
         //console.log('current price:' + currentPrice)
 
         const currentlyPrice = document.getElementById('currently-price')
-        currentlyPrice.textContent = currentPrice + ' pr. kwh '
+        currentlyPrice.textContent = currentPrice + `pr. kwh`
+        //currentPrice + ' pr. kwh' 
 
         const currentlyTime = document.getElementById('currently-time')
         const currentStartHour = new Date().getHours().toFixed(2)

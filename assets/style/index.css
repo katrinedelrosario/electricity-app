@@ -58,11 +58,33 @@ body {
   color: #55ec20;
   align-items: center;
 }
-.content #currently-content .circle1 {
-  border: dotted;
+.content #currently-content .circle3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 50%;
-  width: 200px;
-  height: 200px;
+  box-shadow: 0px 0px 9px 1px rgba(255, 255, 255, 0.096) inset;
+  width: 50vw;
+  height: 50vw;
+  flex-direction: column;
+}
+.content #currently-content .circle2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-style: dashed;
+  width: 40vw;
+  height: 40vw;
+}
+.content #currently-content .circle1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border-style: dashed;
+  width: 35.7142857143vw;
+  height: 35.7142857143vw;
 }
 .content #currently-content h1 {
   color: #ebebeb;
