@@ -40,7 +40,7 @@ async function currentlyData() {
         //console.log('current price:' + currentPrice)
 
         const currentlyPrice = document.getElementById('currently-price')
-        currentlyPrice.textContent = currentPrice + `pr. kwh`
+        currentlyPrice.innerHTML =  `${currentPrice}<br/>pr. kwh`
         //currentPrice + ' pr. kwh' 
 
         const currentlyTime = document.getElementById('currently-time')
